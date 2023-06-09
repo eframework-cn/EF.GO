@@ -8,8 +8,8 @@ require (
 )
 
 replace (
-	github.com/eframework-cn/EP.GO.CORE => ./lib/github.com/eframework-cn/EP.GO.CORE
-	github.com/eframework-cn/EP.GO.UTIL => ./lib/github.com/eframework-cn/EP.GO.UTIL
+	github.com/eframework-cn/EP.GO.CORE => ./lib/EP.GO.CORE
+	github.com/eframework-cn/EP.GO.UTIL => ./lib/EP.GO.UTIL
 )
 
 require github.com/golang/protobuf v1.5.3

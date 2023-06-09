@@ -1,6 +1,8 @@
-[submodule "lib/github.com/eframework-cn/EP.GO.UTIL"]
-	path = lib/github.com/eframework-cn/EP.GO.UTIL
-	url = git@github.com:eframework-cn/EP.GO.UTIL.git
-[submodule "lib/github.com/eframework-cn/EP.GO.CORE"]
-	path = lib/github.com/eframework-cn/EP.GO.CORE
+[submodule "lib/EP.GO.CORE"]
+	path = lib/EP.GO.CORE
 	url = git@github.com:eframework-cn/EP.GO.CORE.git
+	branch = encrypt
+[submodule "lib/EP.GO.UTIL"]
+	path = lib/EP.GO.UTIL
+	url = git@github.com:eframework-cn/EP.GO.UTIL.git
+	branch = master
