@@ -1,0 +1,7 @@
+/exec
+/bin
+/pkg
+/cache
+*.syso
+*.DS_Store
+*.local

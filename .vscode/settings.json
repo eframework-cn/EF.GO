@@ -1,0 +1,723 @@
+{
+    "go.lintFlags": [
+        "--disable=all",
+        "--enable=errcheck"
+    ],
+    "files.exclude": {},
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/.git": true,
+        "**/*.log": true,
+        "exec": true,
+        "pkg": true
+    },
+    "ecode-go.targetList": {
+        "conn": {
+            "common": {
+                "arch": "amd64",
+                "os": "windows",
+                "icon": "conf/icon.ico",
+                "src_path": "src/public/conn",
+                "build_arg": "",
+                "build_path": "exec/public",
+                "build_copy": [
+                    "conf/*",
+                    "conf.local/*"
+                ],
+                "start_delay": 0.5,
+                "stop_delay": 0.3
+            },
+            "debug.windows.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "windows"
+            },
+            "release.windows.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "windows",
+                "build_arg": "-a"
+            },
+            "debug.linux.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "linux"
+            },
+            "release.linux.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "linux",
+                "build_arg": "-a"
+            },
+            "debug.darwin.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "darwin"
+            },
+            "release.darwin.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "darwin",
+                "build_arg": "-a"
+            },
+            "debug.darwin.arm64": {
+                "base": "common",
+                "arch": "arm64",
+                "os": "darwin"
+            },
+            "release.darwin.arm64": {
+                "base": "common",
+                "arch": "arm64",
+                "os": "darwin",
+                "build_arg": "-a"
+            },
+            "library.windows.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "windows",
+                "build_arg": "-a -work"
+            },
+            "library.linux.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "linux",
+                "build_arg": "-a -work"
+            },
+            "library.darwin.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "darwin",
+                "build_arg": "-a -work"
+            },
+            "library.darwin.arm64": {
+                "base": "common",
+                "arch": "arm64",
+                "os": "darwin",
+                "build_arg": "-a -work"
+            }
+        },
+        "cgi": {
+            "common": {
+                "arch": "amd64",
+                "os": "windows",
+                "icon": "conf/icon.ico",
+                "src_path": "src/public/cgi",
+                "build_arg": "",
+                "build_path": "exec/public",
+                "build_copy": [
+                    "conf/*",
+                    "conf.local/*"
+                ],
+                "start_delay": 0.5,
+                "stop_delay": 0.3
+            },
+            "debug.windows.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "windows"
+            },
+            "release.windows.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "windows",
+                "build_arg": "-a"
+            },
+            "debug.linux.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "linux"
+            },
+            "release.linux.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "linux",
+                "build_arg": "-a"
+            },
+            "debug.darwin.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "darwin"
+            },
+            "release.darwin.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "darwin",
+                "build_arg": "-a"
+            },
+            "debug.darwin.arm64": {
+                "base": "common",
+                "arch": "arm64",
+                "os": "darwin"
+            },
+            "release.darwin.arm64": {
+                "base": "common",
+                "arch": "arm64",
+                "os": "darwin",
+                "build_arg": "-a"
+            }
+        },
+        "center": {
+            "common": {
+                "arch": "amd64",
+                "os": "windows",
+                "icon": "conf/icon.ico",
+                "src_path": "src/private/center",
+                "build_arg": "",
+                "build_path": "exec/private",
+                "build_copy": [
+                    "conf/*",
+                    "conf.local/*"
+                ],
+                "start_delay": 0.5,
+                "stop_delay": 0.3
+            },
+            "debug.windows.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "windows"
+            },
+            "release.windows.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "windows",
+                "build_arg": "-a"
+            },
+            "debug.linux.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "linux"
+            },
+            "release.linux.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "linux",
+                "build_arg": "-a"
+            },
+            "debug.darwin.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "darwin"
+            },
+            "release.darwin.amd64": {
+                "base": "common",
+                "arch": "amd64",
+                "os": "darwin",
+                "build_arg": "-a"
+            },
+            "debug.darwin.arm64": {
+                "base": "common",
+                "arch": "arm64",
+                "os": "darwin"
+            },
+            "release.darwin.arm64": {
+                "base": "common",
+                "arch": "arm64",
+                "os": "darwin",
+                "build_arg": "-a"
+            }
+        }
+    },
+    "ecode-go.srcList": [],
+    "ecode-go.libList": [
+        {
+            "path": "core/**/",
+            "level": "protected"
+        },
+        {
+            "path": "core/src/",
+            "level": "public"
+        }
+    ],
+    "ecode-go.gotypesPattern": [
+        {
+            "Old": "error{}",
+            "New": "nil"
+        },
+        {
+            "Old": "return error{}",
+            "New": "return nil"
+        },
+        {
+            "Old": "orm.RawSeter{}",
+            "New": "nil"
+        },
+        {
+            "Old": "IUnit{}",
+            "New": "nil"
+        },
+        {
+            "Old": "IHandler{}",
+            "New": "nil"
+        },
+        {
+            "Old": "fAddrsUpdater{}",
+            "New": "nil"
+        },
+        {
+            "Old": "Configer{}",
+            "New": "nil"
+        },
+        {
+            "Old": "Store{}",
+            "New": "nil"
+        },
+        {
+            "Old": "Provider{}",
+            "New": "nil"
+        },
+        {
+            "Old": "time.Duration{}",
+            "New": "0"
+        },
+        {
+            "Old": "parseResult{}",
+            "New": "0"
+        },
+        {
+            "Old": "\tDiscardNonColorEscSeq",
+            "New": "\t_ outputMode = iota\n\tDiscardNonColorEscSeq"
+        },
+        {
+            "Old": "io.Writer{}",
+            "New": "nil"
+        },
+        {
+            "Old": "Logger{}",
+            "New": "nil"
+        },
+        {
+            "Old": "brush{}",
+            "New": "nil"
+        },
+        {
+            "Old": "Logger{}",
+            "New": "nil"
+        },
+        {
+            "Old": "smtp.Auth{}",
+            "New": "nil"
+        },
+        {
+            "Old": "Socket{}",
+            "New": "nil"
+        },
+        {
+            "Old": "Transport{}",
+            "New": "nil"
+        },
+        {
+            "Old": "Dialer{}",
+            "New": "nil"
+        },
+        {
+            "Old": "Protocol{}",
+            "New": "nil"
+        },
+        {
+            "Old": "PortHook{}",
+            "New": "nil"
+        },
+        {
+            "Old": "Opt{}",
+            "New": "nil"
+        },
+        {
+            "Old": " field{}",
+            "New": " nil"
+        },
+        {
+            "Old": "reflect.Type{}",
+            "New": "nil"
+        },
+        {
+            "Old": "uintptr{}",
+            "New": "0"
+        },
+        {
+            "Old": "io.Reader{}",
+            "New": "nil"
+        },
+        {
+            "Old": "frameReader{}",
+            "New": "nil"
+        },
+        {
+            "Old": "net.Addr{}",
+            "New": "nil"
+        },
+        {
+            "Old": " byte{}",
+            "New": " 0"
+        },
+        {
+            "Old": "stmtQuerier{}",
+            "New": "nil"
+        },
+        {
+            "Old": "\tDRMySQL",
+            "New": "\t_          DriverType = iota // int enum type\n\tDRMySQL"
+        },
+        {
+            "Old": "DriverType{}",
+            "New": "0"
+        },
+        {
+            "Old": "dbBaser{}",
+            "New": "nil"
+        },
+        {
+            "Old": "QueryM2Mer{}",
+            "New": "nil"
+        },
+        {
+            "Old": "QuerySeter{}",
+            "New": "nil"
+        },
+        {
+            "Old": "RawSeter{}",
+            "New": "nil"
+        },
+        {
+            "Old": "Driver{}",
+            "New": "nil"
+        },
+        {
+            "Old": "orm.Ormer{}",
+            "New": "nil"
+        },
+        {
+            "Old": "return Ormer{}",
+            "New": "return nil"
+        },
+        {
+            "Old": "sql.Result{}",
+            "New": "nil"
+        },
+        {
+            "Old": "dbQuerier{}",
+            "New": "nil"
+        },
+        {
+            "Old": "Inserter{}",
+            "New": "nil"
+        },
+        {
+            "Old": "driver.Tx{}",
+            "New": "nil"
+        },
+        {
+            "Old": "driver.Stmt{}",
+            "New": "nil"
+        },
+        {
+            "Old": "driver.Result{}",
+            "New": "nil"
+        },
+        {
+            "Old": "driver.Rows{}",
+            "New": "nil"
+        },
+        {
+            "Old": "driver.nil",
+            "New": "nil"
+        },
+        {
+            "Old": "sync.Locker{}",
+            "New": "nil"
+        },
+        {
+            "Old": "extendableProto{}",
+            "New": "nil"
+        },
+        {
+            "Old": "sort.Interface{}",
+            "New": "nil"
+        },
+        {
+            "Old": "sizer{}",
+            "New": "nil"
+        },
+        {
+            "Old": "return sizer{}",
+            "New": "return nil"
+        },
+        {
+            "Old": "RawPreparer{}",
+            "New": "nil"
+        },
+        {
+            "Old": "QueryBuilder{}",
+            "New": "nil"
+        },
+        {
+            "Old": "driver.Conn{}",
+            "New": "nil"
+        },
+        {
+            "Old": "driver.Connector{}",
+            "New": "nil"
+        },
+        {
+            "Old": "Message{}",
+            "New": "nil"
+        },
+        {
+            "Old": "marshaler{}",
+            "New": "nil"
+        },
+        {
+            "Old": " Token{}",
+            "New": " 0"
+        },
+        {
+            "Old": "unsafe.Pointer{}",
+            "New": "nil"
+        },
+        {
+            "Old": "Sockaddr{}",
+            "New": "nil"
+        },
+        {
+            "Old": "Signal{}",
+            "New": "0"
+        },
+        {
+            "Old": " Pipe{}",
+            "New": " nil"
+        },
+        {
+            "Old": " Listener{}",
+            "New": " nil"
+        },
+        {
+            "Old": "syscall.Handle{}",
+            "New": "0"
+        },
+        {
+            "Old": "net.Conn{}",
+            "New": "nil"
+        },
+        {
+            "Old": "net.Listener{}",
+            "New": "nil"
+        },
+        {
+            "Old": "windows.Token{}",
+            "New": "0"
+        },
+        {
+            "Old": "unnil",
+            "New": "nil"
+        },
+        {
+            "Old": "resetWriter{}",
+            "New": "nil"
+        },
+        {
+            "Old": "Renderer{}",
+            "New": "nil"
+        },
+        {
+            "Old": "LinkNamespace{}",
+            "New": "nil"
+        },
+        {
+            "Old": "template.HTML{}",
+            "New": "nil"
+        },
+        {
+            "Old": "ITable{}",
+            "New": "nil"
+        },
+        {
+            "Old": "xorm.nil",
+            "New": "nil"
+        },
+        {
+            "Old": "RpcClient{}",
+            "New": "nil"
+        },
+        {
+            "Old": "HRESULT{}",
+            "New": "0"
+        },
+        {
+            "Old": "HIMAGELIST{}",
+            "New": "0"
+        },
+        {
+            "Old": "COLORREF{}",
+            "New": "0"
+        },
+        {
+            "Old": "HANDLE{}",
+            "New": "0"
+        },
+        {
+            "Old": "HENHMETAFILE{}",
+            "New": "0"
+        },
+        {
+            "Old": "HBITMAP{}",
+            "New": "0"
+        },
+        {
+            "Old": "HBRUSH{}",
+            "New": "0"
+        },
+        {
+            "Old": "HDC{}",
+            "New": "0"
+        },
+        {
+            "Old": "HFONT{}",
+            "New": "0"
+        },
+        {
+            "Old": "HRGN{}",
+            "New": "0"
+        },
+        {
+            "Old": "HRSRC{}",
+            "New": "0"
+        },
+        {
+            "Old": "HWND{}",
+            "New": "0"
+        },
+        {
+            "Old": "HINSTANCE{}",
+            "New": "0"
+        },
+        {
+            "Old": "LCID{}",
+            "New": "0"
+        },
+        {
+            "Old": "LANGID{}",
+            "New": "0"
+        },
+        {
+            "Old": "HGLOBAL{}",
+            "New": "0"
+        },
+        {
+            "Old": "HDWP{}",
+            "New": "0"
+        },
+        {
+            "Old": "HICON{}",
+            "New": "0"
+        },
+        {
+            "Old": "HMENU{}",
+            "New": "0"
+        },
+        {
+            "Old": "BOOL{}",
+            "New": "0"
+        },
+        {
+            "Old": "HCURSOR{}",
+            "New": "0"
+        },
+        {
+            "Old": "HMONITOR{}",
+            "New": "0"
+        },
+        {
+            "Old": "ATOM{}",
+            "New": "0"
+        },
+        {
+            "Old": "HWINEVENTHOOK{}",
+            "New": "0"
+        },
+        {
+            "Old": "HGDIOBJ{}",
+            "New": "0"
+        },
+        {
+            "Old": "HPEN{}",
+            "New": "0"
+        },
+        {
+            "Old": "HGLRC{}",
+            "New": "0"
+        },
+        {
+            "Old": "VARIANT_0",
+            "New": "0"
+        },
+        {
+            "Old": "HTHEME{}",
+            "New": "0"
+        },
+        {
+            "Old": "GpStatus{}",
+            "New": "0"
+        },
+        {
+            "Old": "mangos.Pipe{}",
+            "New": "nil"
+        },
+        {
+            "Old": "mangos.PipeListener{}",
+            "New": "nil"
+        },
+        {
+            "Old": "mangos.Pipenil",
+            "New": "nil"
+        },
+        {
+            "Old": "mangos.nil",
+            "New": "nil"
+        },
+        {
+            "Old": "io.ReadWriteCloser{}",
+            "New": "nil"
+        },
+        {
+            "Old": "Data{}",
+            "New": "nil"
+        },
+        {
+            "Old": "_, err",
+            "New": "nil, nil"
+        },
+        {
+            "Old": "statusFlag{}",
+            "New": "0"
+        },
+        {
+            "Old": "ConfigEntry{}",
+            "New": "nil"
+        },
+        {
+            "Old": "IClient{}",
+            "New": "nil"
+        },
+        {
+            "Old": "return Type{}",
+            "New": "return nil"
+        },
+        {
+            "Old": "return Set{}",
+            "New": "return nil"
+        },
+        {
+            "Old": "return driver.Value{}",
+            "New": "return nil"
+        },
+        {
+            "Old": "xproto.IFrame{}",
+            "New": "nil"
+        },
+        {
+            "Old": "IFrame{}",
+            "New": "nil"
+        }
+    ]
+}
