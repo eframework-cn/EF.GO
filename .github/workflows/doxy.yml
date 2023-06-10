@@ -17,6 +17,9 @@ jobs:
             - uses: actions/checkout@v3
               with: 
                 submodules: 'true'
+            - run: cd lib/EP.GO.CORE
+            - run: git checkout master
+            - run: cd ../../
                 
             ## 配置环境
             - run: git config --global user.name github-actions[bot]
