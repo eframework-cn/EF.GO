@@ -55,76 +55,32 @@ A LITE GO-BASED FRAMEWORK.
 - **SEE [LICENSE.md](https://go.eframework.cn/md_LICENSE.html) FOR MORE DETAILS.**
 
 ## CHANGELOG | 更新日志
-### v1.2.5 [2023.05.28]
+### v0.0.1 [2020.08.01 - 2023.06.10]
 - 修复server.ini->env字段读取异常
-
-### v1.2.2 - v1.2.4 [2023.02.13]
 - 修复Windows服务器无Golang环境无法初始化Mysql的问题
+- 修复xconn网关异常（'close of closed channel'）
+- 修复xsession注释错误
 - 新增xsession.GCount获取数据数量
 - 新增xorm.RxSMembers、xorm.RxSCard、xorm.RxLIndex等Redis接口
 - 新增xorm.limit限制字段支持
-- 优化所有包的注释
-- Fix mysql initialization issue on windows server without golang env.
-- Add xsession.GCount for getting data count.
-- Add xorm.RxSMembers, xorm.RxSCard, xorm.RxLIndex redis api.
-- Add xorm.limit field support.
-- Optimize packages' comment/document.
-
-### v1.2.1 [2022.10.12]
-- 修复xconn网关异常（'close of closed channel'）
 - 新增conf.local支持
-- 修复xsession注释错误
-- fix socket client crash error
-- add conf.local support
-- fix incorrect xsession comment
-
-### v1.2.0 [2022.09.29]
-- 修复xconn网关异常（'close of closed channel'）
+- 新增WebSocket(tls)的支持
+- 新增xmsg.UnpackSID用于解析客户端的保留ID
+- 新增xserver.SendCgi的uid参数，用于负载均衡
+- 优化完善若干日志
+- 优化所有包的注释
 - 导出GetFPS和GetTitle接口
 - 修改Consul健康检测的返回值（使用win32版本的title替代之）
-- fix xconn crash of 'close of closed channel'
-- export GetFPS and GetTitle of xserver
-- change consul check's response to win32's title
-
-### v1.1.9 [2022.07.22]
 - 修改配置文件在linux无法找到.
-- fix config path issue in linux.
-
-### v1.1.8 [2022.07.15]
 - 修改package(包)的名称.
-- change package name.
-
-### v1.1.7 [2022.07.14]
 - 修改msg和cgi的协议格式, 支持pb和json, 于server.ini中配置.
 - 修改xmsg包为xproto.
 - 更新protoc.exe.
 - 重构protocol为protos, 区分cpb,mpb,rpb三种, 修改gproto.exe为gopb.exe工具.
 - 完善cgi请求超时逻辑.
 - 修改cgi默认协议为http.
-- change protocol of msg and cgi, support pb and json format, config it at server.ini.
-- change xmsg to xproto.
-- update protoc.exe.
-- refactor protocol to protos, distinct cpb/mpb/rpb, change gproto.exe to gopb.exe.
-- finish cgi timeout logic.
-- change cgi default protocol to http instead of https.
-
-### v1.1.6 [2022.06.23]
 - 修改CGI的访问方式.
 - 修改CGIquery的格式.
-- change cgi access.
-- fix cgi query issue.
-
-### v1.1.5 [2022.05.30]
-- 新增WebSocket(tls)的支持
-- 新增xmsg.UnpackSID用于解析客户端的保留ID
-- 新增xserver.SendCgi的uid参数，用于负载均衡
-- 完善若干日志
-
-### v1.1.3 [2022.05.27]
-- **[BETA]DO NOT USE THIS TAG!**
-- [PROXY]CACHED BY GOPROXY.CN
-
-### v1.1.2 [2022.05.20]
 - 重构Frame的类型
 - 新增xhttp用于cgi接口
 - 重构工程结构private/public
