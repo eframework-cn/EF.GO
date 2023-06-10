@@ -33,7 +33,7 @@ jobs:
             - run: rm -rf ./doxygen-1.9.7
             - run: mkdir ./.html/res/
             - run: cp ./res/* ./.html/res/
-            - run: cp -r `find ./ -mindepth 2 -maxdepth 2 -name 'res'` ./.html/
+            - run: cp -r `find ./lib -mindepth 2 -maxdepth 2 -name 'res'` ./.html/
             - run: git add ./.html
             - run: git stash save ./.html
 
