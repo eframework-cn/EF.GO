@@ -43,6 +43,11 @@ A LITE GO-BASED FRAMEWORK.
 ### Project
 - 安装依赖：go mod tidy
 - 编译调试：ecode.go
+- 创建图标：
+```  
+    安装gfie_setup_3.31.exe  
+    以template.ico为模板生成即可  
+```
 
 ## FAQ | 常见问题
 
