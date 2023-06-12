@@ -24,14 +24,14 @@ jobs:
             - run: git config --global user.email github-actions[bot]@users.noreply.github.com
             - run: git config --global --add safe.directory /github/workspace
             - run: sudo apt-get install graphviz -y
-            - run: wget https://github.com/doxygen/doxygen/releases/download/Release_1_9_7/doxygen-1.9.7.linux.bin.tar.gz
-            - run: tar -zxvf ./doxygen-1.9.7.linux.bin.tar.gz
-            - run: rm -f ./doxygen-1.9.7.linux.bin.tar.gz
-            - run: chmod -R 777 ./doxygen-1.9.7/bin/
+            - run: wget https://github.com/doxygen/doxygen/releases/download/Release_1_9_6/doxygen-1.9.6.linux.bin.tar.gz
+            - run: tar -zxvf ./doxygen-1.9.6.linux.bin.tar.gz
+            - run: rm -f ./doxygen-1.9.6.linux.bin.tar.gz
+            - run: chmod -R 777 ./doxygen-1.9.6/bin/
 
             ## 生成文档
-            - run: ./doxygen-1.9.7/bin/doxygen .doxy
-            - run: rm -rf ./doxygen-1.9.7
+            - run: ./doxygen-1.9.6/bin/doxygen .doxy
+            - run: rm -rf ./doxygen-1.9.6
             - run: mkdir ./.html/res/
             - run: cp ./res/* ./.html/res/
             - run: cp -r `find ./ -mindepth 3 -maxdepth 3 -name 'res'` ./.html/
