@@ -4,7 +4,7 @@ Navicat MySQL Data Transfer
 Source Server         : localhost_3306
 Source Server Version : 50528
 Source Host           : localhost:3306
-Source Database       : esvr_test
+Source Database       : eframe_test
 
 Target Server Type    : MYSQL
 Target Server Version : 50528
@@ -32,4 +32,4 @@ CREATE TABLE `player` (
 -- ----------------------------
 -- Records of player
 -- ----------------------------
-INSERT INTO `player` VALUES ('0', 'hsu1001', '123456', '00000000000', '', null);
+INSERT INTO `player` VALUES ('0', 'test01', '123456', '00000000000', '', null);
