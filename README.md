@@ -2,7 +2,7 @@
 A LITE GO-BASED FRAMEWORK.
 
 ## SUMMARY | 功能概述
-![avatar](res/ef-structure.png)
+![](res/ef-structure.png)
 - 分布式、高承载、无状态的微服务框架
 - 前后端服务分离(private/public)
 - 富前端连接，支持socket/ws/wss/http/https等
