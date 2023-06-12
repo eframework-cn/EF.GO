@@ -18,8 +18,8 @@ import (
 	"github.com/eframework-cn/EP.GO.CORE/xserver"
 	"github.com/eframework-cn/EP.GO.UTIL/xlog"
 
-	"github.com/eframework-cn/EF.GO/src/shared/proto/mpb"
-	"github.com/eframework-cn/EF.GO/src/shared/proto/rpb"
+	"eframe/src/shared/proto/mpb"
+	"eframe/src/shared/proto/rpb"
 
 	"github.com/golang/protobuf/proto"
 )

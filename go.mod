@@ -1,4 +1,4 @@
-module github.com/eframework-cn/EF.GO
+module eframe
 
 go 1.18
 

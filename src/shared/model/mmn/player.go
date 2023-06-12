@@ -5,7 +5,7 @@ import (
 
 	"github.com/eframework-cn/EP.GO.CORE/xorm"
 
-	"github.com/eframework-cn/EF.GO/src/shared/model/mdf"
+	"eframe/src/shared/model/mdf"
 )
 
 type Player struct {

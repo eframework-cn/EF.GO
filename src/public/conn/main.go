@@ -13,12 +13,12 @@ package main
 import (
 	"github.com/eframework-cn/EP.GO.CORE/xserver"
 
-	_ "github.com/eframework-cn/EF.GO/src/shared/proto"
+	_ "eframe/src/shared/proto"
 
 	_ "github.com/eframework-cn/EP.GO.UTIL/xlog"
 	"github.com/eframework-cn/EP.GO.UTIL/xrun"
 
-	"github.com/eframework-cn/EF.GO/src/public/conn/app"
+	"eframe/src/public/conn/app"
 )
 
 func main() {

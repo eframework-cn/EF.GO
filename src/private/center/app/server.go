@@ -11,8 +11,8 @@
 package app
 
 import (
-	_ "github.com/eframework-cn/EF.GO/src/private/center/ctx"
-	"github.com/eframework-cn/EF.GO/src/shared/model/mmn"
+	_ "eframe/src/private/center/ctx"
+	"eframe/src/shared/model/mmn"
 
 	"github.com/eframework-cn/EP.GO.CORE/xserver"
 )

@@ -7,9 +7,9 @@ import (
 
 	"github.com/eframework-cn/EP.GO.CORE/xserver"
 
-	"github.com/eframework-cn/EF.GO/src/shared/proto/cpb"
-	"github.com/eframework-cn/EF.GO/src/shared/proto/mpb"
-	"github.com/eframework-cn/EF.GO/src/shared/proto/rpb"
+	"eframe/src/shared/proto/cpb"
+	"eframe/src/shared/proto/mpb"
+	"eframe/src/shared/proto/rpb"
 )
 
 func init() {

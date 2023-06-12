@@ -11,14 +11,14 @@
 package main
 
 import (
-	_ "github.com/eframework-cn/EF.GO/src/shared/proto"
+	_ "eframe/src/shared/proto"
 
 	"github.com/eframework-cn/EP.GO.CORE/xserver"
 
 	_ "github.com/eframework-cn/EP.GO.UTIL/xlog"
 	"github.com/eframework-cn/EP.GO.UTIL/xrun"
 
-	"github.com/eframework-cn/EF.GO/src/private/center/app"
+	"eframe/src/private/center/app"
 )
 
 func main() {
