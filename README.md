@@ -60,7 +60,13 @@ A LITE GO-BASED FRAMEWORK.
 - **SEE [LICENSE.md](https://go.eframework.cn/md_LICENSE.html) FOR MORE DETAILS.**
 
 ## CHANGELOG | 更新日志
-### v0.0.1 [2020.08.01 - 2023.06.10]
+### 2023.6.11 - 2023.6.20
+- 重构配置文件结构（server/consul/log/mysql/redis）
+- 重构部分xserver接口
+- 新增redis多db功能支持
+- 新增多源化读取配置文件功能
+
+### 2020.8.1 - 2023.6.10
 - 修复server.ini->env字段读取异常
 - 修复Windows服务器无Golang环境无法初始化Mysql的问题
 - 修复xconn网关异常（'close of closed channel'）

@@ -32,7 +32,7 @@ func init() {
 		if conns != nil {
 			for _, conn := range conns {
 				resp := &rpb.RPC_GetOnlineFromConnResp{}
-				xserver.SendSync(int(rpb.RID.RPC_GET_ONLINE_FROM_CONN), 0, nil, resp, conn.ServerID())
+				xserver.SendSync(int(rpb.RID.RPC_GET_ONLINE_FROM_CONN), 0, nil, resp, conn.ID)
 				for idx, id := range resp.ID {
 					uid := int(id)
 					url := resp.Url[idx]
