@@ -30,3 +30,7 @@ func NewCenterServer() *CenterServer {
 	this.CTOR(this)
 	return this
 }
+
+func (this *CenterServer) Update(delta float32) {
+	this.Server.Update(delta)
+}

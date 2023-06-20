@@ -1,0 +1,42 @@
+{
+    "env": "dev",
+    "csl": {
+        "ns": "eframe",
+        "addr": "127.0.0.1:8500",
+        "logout": 1000000,
+        "timeout": 1000000,
+        "interval": 5,
+        "fetch": 5
+    },
+    "lan": {
+        "name": "cgi",
+        "go": 30,
+        "addr": "127.0.0.1:12000",
+        "ctrl": "127.0.0.1:12001",
+        "maxrx": 4096,
+        "msg": "pb",
+        "cgi": "json",
+        "link": [
+            "center"
+        ]
+    },
+    "log": {
+        "console": {
+            "level": 6
+        },
+        "file": {
+            "filename": "log/cgi.log",
+            "maxlines": 500000,
+            "maxsize": 40000000,
+            "daily": true,
+            "maxdays": 100,
+            "rotate": true,
+            "level": 6
+        }
+    },
+    "client": {
+        "addr": ":9100",
+        "key": "",
+        "cert": ""
+    }
+}

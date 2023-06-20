@@ -20,6 +20,7 @@ require (
 	github.com/fatih/color v1.9.0 // indirect
 	github.com/go-sql-driver/mysql v1.7.1 // indirect
 	github.com/hashicorp/consul/api v1.21.0 // indirect
+	github.com/hashicorp/consul/sdk v0.13.1 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.1 // indirect
 	github.com/hashicorp/go-hclog v0.12.0 // indirect
 	github.com/hashicorp/go-immutable-radix v1.0.0 // indirect

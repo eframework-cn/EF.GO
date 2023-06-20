@@ -39,8 +39,8 @@ func init() {
 type MIDEnum int
 
 type _MID struct {
-	GM_HEART_BEAT     MIDEnum `id:"0" name:"GM_HEART_BEAT" to:"gate"`                  // 心跳包
-	GM_KICK_OFF       MIDEnum `id:"1" name:"GM_KICK_OFF" to:"client"`                  // 下线
-	GM_LOGIN_REQUEST  MIDEnum `id:"2" name:"GM_LOGIN_REQUEST" to:"hall" go:"0" rw:"1"` // 请求设备登录
-	GM_LOGIN_RESPONSE MIDEnum `id:"3" name:"GM_LOGIN_RESPONSE" to:"client"`            // 返回设备登录
+	GM_HEART_BEAT     MIDEnum `id:"0" name:"GM_HEART_BEAT" to:"gate"`                    // 心跳包
+	GM_KICK_OFF       MIDEnum `id:"1" name:"GM_KICK_OFF" to:"client"`                    // 下线
+	GM_LOGIN_REQUEST  MIDEnum `id:"2" name:"GM_LOGIN_REQUEST" to:"center" go:"0" rw:"1"` // 请求设备登录
+	GM_LOGIN_RESPONSE MIDEnum `id:"3" name:"GM_LOGIN_RESPONSE" to:"client"`              // 返回设备登录
 }

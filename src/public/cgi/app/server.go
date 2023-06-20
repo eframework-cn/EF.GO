@@ -18,17 +18,21 @@ import (
 	"github.com/eframework-cn/EP.GO.CORE/xproto"
 	"github.com/eframework-cn/EP.GO.CORE/xserver"
 	"github.com/eframework-cn/EP.GO.UTIL/xjson"
+	"github.com/eframework-cn/EP.GO.UTIL/xlog"
 	"github.com/eframework-cn/EP.GO.UTIL/xrun"
 	"github.com/eframework-cn/EP.GO.UTIL/xstring"
 )
 
+type CgiCfg struct {
+	Addr string `json:"addr"` // 前端连接地址
+	Key  string `json:"key"`  // Https密钥
+	Cert string `json:"cert"` // Https证书
+}
+
 type CgiServer struct {
 	xserver.Server
-	Svr *xhttp.Server
-
-	Address string // 前端连接地址
-	Key     string // Https密钥
-	Cert    string // Https证书
+	Svr  *xhttp.Server
+	CCfg *CgiCfg
 }
 
 func NewCgiServer() *CgiServer {
@@ -36,7 +40,7 @@ func NewCgiServer() *CgiServer {
 	this.CTOR(this)
 	xserver.RegEvt(xserver.EVT_SERVER_STARTED, func(param interface{}) {
 		this.Svr = xhttp.NewServer().
-			SetAddr(this.Address).SetHttps(this.Key, this.Cert).
+			SetAddr(this.CCfg.Addr).SetHttps(this.CCfg.Key, this.CCfg.Cert).
 			SetHandler(func(resp http.ResponseWriter, req *http.Request) {
 				method := req.Method
 				if method == "OPTIONS" { // preflight request
@@ -82,7 +86,7 @@ func NewCgiServer() *CgiServer {
 								resp.WriteHeader(502)
 								resp.Write(xstring.StrToBytes(fmt.Sprintf("no lan for route %v, path %v", route.Dst[0], req.URL.Path)))
 							} else {
-								if cresp, err := xserver.SendCgi(route.ID, 0, req, lan.ServerID(), route.Timeout); err != nil {
+								if cresp, err := xserver.SendCgi(route.ID, 0, req, lan.ID, route.Timeout); err != nil {
 									resp.WriteHeader(503)
 									resp.Write(xstring.StrToBytes(err.Error()))
 								} else {
@@ -108,13 +112,26 @@ func NewCgiServer() *CgiServer {
 	return this
 }
 
-func (this *CgiServer) InitConfig() bool {
-	if this.Server.InitConfig() == false {
+func (this *CgiServer) Init(cfg *xserver.SvrCfg) bool {
+	var lcfg map[string]interface{}
+	if e := xjson.ToObj(cfg.Raw, &lcfg); e != nil {
+		xlog.Panic("CgiServer.Init: readout config error: ", e)
 		return false
 	}
-	config := this.GetConfig()
-	this.Address = config.Raw.String("client::addr")
-	this.Key = config.Raw.DefaultString("client::key", "")
-	this.Cert = config.Raw.DefaultString("client::cert", "")
-	return true
+	if ccfg, _ := lcfg["client"]; ccfg == nil {
+		xlog.Panic("CgiServer.Init: readout config error: nil client section")
+		return false
+	} else {
+		d, e := xjson.ToByte(ccfg)
+		if e != nil {
+			xlog.Panic("CgiServer.Init: readout config error: ", e)
+			return false
+		}
+		this.CCfg = new(CgiCfg)
+		if e := xjson.ToObj(d, this.CCfg); e != nil {
+			xlog.Panic("CgiServer.Init: readout config error: ", e)
+			return false
+		}
+		return this.Server.Init(cfg)
+	}
 }

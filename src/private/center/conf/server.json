@@ -1,0 +1,55 @@
+{
+    "env": "dev",
+    "csl": {
+        "ns": "eframe",
+        "addr": "127.0.0.1:8500",
+        "logout": 1000000,
+        "timeout": 1000000,
+        "interval": 5,
+        "fetch": 5
+    },
+    "lan": {
+        "name": "center",
+        "go": 1,
+        "addr": "127.0.0.1:13000",
+        "ctrl": "127.0.0.1:13001",
+        "maxrx": 4096,
+        "msg": "pb",
+        "cgi": "json",
+        "link": [
+            "conn",
+            "cgi"
+        ]
+    },
+    "log": {
+        "console": {
+            "level": 6
+        },
+        "file": {
+            "filename": "log/center.log",
+            "maxlines": 500000,
+            "maxsize": 40000000,
+            "daily": true,
+            "maxdays": 100,
+            "rotate": true,
+            "level": 6
+        }
+    },
+    "redis": {
+        "addr": "127.0.0.1:6379",
+        "pwd": "",
+        "db": 0,
+        "maxIdle": 10
+    },
+    "mysql": {
+        "DB_Main": {
+            "database": "eframe_test",
+            "address": "127.0.0.1:3306",
+            "username": "root",
+            "password": "123456",
+            "maxIdle": 10,
+            "maxConn": 30,
+            "checkSec": 1800
+        }
+    }
+}

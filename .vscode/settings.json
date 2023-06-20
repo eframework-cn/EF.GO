@@ -27,7 +27,8 @@
                     "conf.local/*"
                 ],
                 "start_delay": 0.5,
-                "stop_delay": 0.3
+                "stop_delay": 0.3,
+                "stop_port": "./log/port.txt"
             },
             "debug.windows.amd64": {
                 "base": "common",
@@ -111,7 +112,8 @@
                     "conf.local/*"
                 ],
                 "start_delay": 0.5,
-                "stop_delay": 0.3
+                "stop_delay": 0.3,
+                "stop_port": "./log/port.txt"
             },
             "debug.windows.amd64": {
                 "base": "common",
@@ -171,7 +173,8 @@
                     "conf.local/*"
                 ],
                 "start_delay": 0.5,
-                "stop_delay": 0.3
+                "stop_delay": 0.3,
+                "stop_port": "./log/port.txt"
             },
             "debug.windows.amd64": {
                 "base": "common",

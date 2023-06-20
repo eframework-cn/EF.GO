@@ -39,5 +39,5 @@ func init() {
 type CIDEnum int
 
 type _CID struct {
-	HELLO_WORLD CIDEnum `id:"0" name:"HELLO_WORLD" to:"hall" go:"0" rw:"1" method:"GET,POST" timeout:"-1"` //
+	HELLO_WORLD CIDEnum `id:"0" name:"HELLO_WORLD" to:"center" go:"0" rw:"1" method:"GET,POST" timeout:"-1"` //
 }

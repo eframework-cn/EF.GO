@@ -16,6 +16,7 @@ import (
 	"github.com/eframework-cn/EP.GO.CORE/xconn"
 	"github.com/eframework-cn/EP.GO.CORE/xproto"
 	"github.com/eframework-cn/EP.GO.CORE/xserver"
+	"github.com/eframework-cn/EP.GO.UTIL/xjson"
 	"github.com/eframework-cn/EP.GO.UTIL/xlog"
 
 	"eframe/src/shared/proto/mpb"
@@ -23,6 +24,17 @@ import (
 
 	"github.com/golang/protobuf/proto"
 )
+
+type ConnCfg struct {
+	Addr    string `json:"addr"`                   // 前端连接地址
+	MaxConn int    `json:"maxConn" default:"5000"` // 最大连接数（超过该值将不再接收新的连接）（默认5000）
+	MaxLoad int    `json:"maxLoad" default:"100"`  // 单连接每秒最大的请求数（超过该值则视为DDOS，主动断开连接）（默认100QPS）
+	MaxBody int    `json:"maxBody" default:"1024"` // 单连接最大的消息体（不包含头部）（默认1024KB）
+	Timeout int    `json:"timeout" default:"15"`   // 连接超时时间（超过该值则主动断开连接）（默认15秒）
+	WS      bool   `json:"ws" default:"false"`     // 是否面向WebSocket连接（默认false）
+	Key     string `json:"key"`                    // Https密钥
+	Cert    string `json:"cert"`                   // Https证书
+}
 
 type ConnClient struct {
 	xconn.Client
@@ -39,17 +51,8 @@ func NewConnClient(server *xconn.Server) *ConnClient {
 
 type ConnServer struct {
 	xserver.Server
-	Svr *xconn.Server
-
-	IsWS    bool   // 是否面向WebSocket连接（默认true）
-	Key     string // Https密钥
-	Cert    string // Https证书
-	MaxConn int    // 最大连接数（超过该值将不再接收新的连接）（默认5000）
-	MaxLoad int    // 单连接每秒最大的请求数（超过该值则视为DDOS，主动断开连接）（默认100QPS）
-	MaxBody int    // 单连接最大的消息体（不包含头部）（默认1024 * 1024 = 1048576）
-	Address string // 前端连接地址
-	Timeout int    // 连接超时时间（超过该值则主动断开连接）（默认15秒）
-
+	Svr     *xconn.Server
+	CCfg    *ConnCfg
 	BeatMsg []byte
 }
 
@@ -59,9 +62,9 @@ func NewConnServer() *ConnServer {
 	this.BeatMsg, _ = xproto.PackMsg(int(mpb.MID.GM_HEART_BEAT), &mpb.GM_Common{Result: proto.Int(0)})
 	xserver.RegEvt(xserver.EVT_SERVER_STARTED, func(param interface{}) {
 		this.Svr = xconn.NewServer().
-			SetAddr(this.Address).SetIsWS(this.IsWS, this.Key, this.Cert).
-			SetMaxConn(this.MaxConn).SetMaxLoad(this.MaxLoad).
-			SetMaxBody(this.MaxBody).SetTimeout(this.Timeout).
+			SetAddr(this.CCfg.Addr).SetIsWS(this.CCfg.WS, this.CCfg.Key, this.CCfg.Cert).
+			SetMaxConn(this.CCfg.MaxConn).SetMaxLoad(this.CCfg.MaxLoad).
+			SetMaxBody(this.CCfg.MaxBody * 1024).SetTimeout(this.CCfg.Timeout).
 			SetOnAccept(func(client xconn.IClient) {
 			}).
 			SetOnRemove(func(client xconn.IClient) {
@@ -96,24 +99,32 @@ func NewConnServer() *ConnServer {
 	return this
 }
 
-func (this *ConnServer) InitConfig() bool {
-	if this.Server.InitConfig() == false {
+func (this *ConnServer) Init(cfg *xserver.SvrCfg) bool {
+	var lcfg map[string]interface{}
+	if e := xjson.ToObj(cfg.Raw, &lcfg); e != nil {
+		xlog.Panic("ConnServer.Init: readout config error: ", e)
 		return false
 	}
-	config := this.GetConfig()
-	this.IsWS = config.Raw.DefaultBool("client::ws", true)
-	this.Key = config.Raw.DefaultString("client::key", "")
-	this.Cert = config.Raw.DefaultString("client::cert", "")
-	this.MaxConn = config.Raw.DefaultInt("client::maxConn", 5000)
-	this.MaxLoad = config.Raw.DefaultInt("client::maxLoad", 100)
-	this.MaxBody = config.Raw.DefaultInt("client::maxBody", 1024*1024)
-	this.Address = config.Raw.String("client::addr")
-	this.Timeout = config.Raw.DefaultInt("client::timeout", 15)
-	return true
+	if ccfg, _ := lcfg["client"]; ccfg == nil {
+		xlog.Panic("ConnServer.Init: readout config error: nil client section")
+		return false
+	} else {
+		d, e := xjson.ToByte(ccfg)
+		if e != nil {
+			xlog.Panic("ConnServer.Init: readout config error: ", e)
+			return false
+		}
+		this.CCfg = new(ConnCfg)
+		if e := xjson.ToObj(d, this.CCfg); e != nil {
+			xlog.Panic("ConnServer.Init: readout config error: ", e)
+			return false
+		}
+		return this.Server.Init(cfg)
+	}
 }
 
-func (this *ConnServer) UpdateTitle() string {
-	title := this.Server.UpdateTitle()
+func (this *ConnServer) SetTitle() string {
+	title := this.Server.SetTitle()
 	if this.Svr != nil {
 		title += fmt.Sprintf("[CON-%v]", this.Svr.OnlineNum)
 	}
@@ -150,13 +161,13 @@ func (this *ConnServer) ToServer(client *ConnClient, rid int, dst string, bytes 
 
 func (this *ConnServer) RemoveClient(client *ConnClient) {
 	if client.UID != -1 {
-		hall := xserver.GLan.SelectRand("hall")
-		if hall != nil {
+		center := xserver.GLan.SelectRand("center")
+		if center != nil {
 			req := &rpb.RPC_ConnNotifyOfflineReq{}
 			req.UID = proto.Int(client.UID)
 			req.Url = xproto.PGUrl
 			req.CID = proto.Int64(int64(client.ID))
-			xserver.SendAsync(int(rpb.RID.RPC_CONN_NOTIFY_OFFLINE), client.UID, req, hall.ServerID(), nil)
+			xserver.SendAsync(int(rpb.RID.RPC_CONN_NOTIFY_OFFLINE), client.UID, req, center.ID, nil)
 		}
 		client.UID = -1
 	}
@@ -180,7 +191,7 @@ func (this *ConnServer) FromClient(client *ConnClient, bytes []byte) {
 				if conn == nil {
 					xlog.Warn("ctx.ConnServer.FromClient: select conn failed, uid=%v, id=%v, tag=%v", client.UID, rid, dst)
 				} else {
-					this.ToServer(client, rid, conn.ServerID(), bytes, route.GoL, route.GoR)
+					this.ToServer(client, rid, conn.ID, bytes, route.GoL, route.GoR)
 				}
 			}
 		}

@@ -1,0 +1,47 @@
+{
+    "env": "dev",
+    "csl": {
+        "ns": "eframe",
+        "addr": "127.0.0.1:8500",
+        "logout": 60,
+        "timeout": 5,
+        "interval": 5,
+        "fetch": 5
+    },
+    "lan": {
+        "name": "conn",
+        "go": 30,
+        "addr": "127.0.0.1:11000",
+        "ctrl": "127.0.0.1:11001",
+        "maxrx": 4096,
+        "msg": "pb",
+        "cgi": "json",
+        "link": [
+            "center"
+        ]
+    },
+    "log": {
+        "console": {
+            "level": 6
+        },
+        "file": {
+            "filename": "log/conn.log",
+            "maxlines": 500000,
+            "maxsize": 40000000,
+            "daily": true,
+            "maxdays": 100,
+            "rotate": true,
+            "level": 6
+        }
+    },
+    "client": {
+        "addr": ":9006",
+        "timeout": 15,
+        "maxConn": 5000,
+        "maxLoad": 100,
+        "maxBody": 1024,
+        "ws": false,
+        "key": "",
+        "cert": ""
+    }
+}
