@@ -5,8 +5,8 @@
         "addr": "127.0.0.1:8500",
         "logout": 1000000,
         "timeout": 1000000,
-        "interval": 5,
-        "fetch": 5
+        "interval": 1000000,
+        "fetch": 1
     },
     "lan": {
         "name": "cgi",

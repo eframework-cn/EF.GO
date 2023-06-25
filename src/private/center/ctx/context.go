@@ -20,31 +20,34 @@ import (
 )
 
 func init() {
+	xserver.RegEvt(xserver.EVT_SERVER_CHANGED, func(param interface{}) {
+		added := param.([]interface{})[0].(map[string][]string)
+		for k, v := range added {
+			if k == "conn" {
+				for _, c := range v {
+					resp := &rpb.RPC_GetOnlineFromConnResp{}
+					xserver.SendSync(int(rpb.RID.RPC_GET_ONLINE_FROM_CONN), 0, nil, resp, c)
+					for idx, id := range resp.ID {
+						uid := int(id)
+						url := resp.Url[idx]
+						cid := resp.CID[idx]
+						player := ReadPlayer(uid)
+						if player != nil {
+							player.Online = 1
+							player.ConnUrl = url
+							player.ConnID = cid
+						}
+					}
+				}
+			}
+		}
+	})
 	xserver.RegEvt(xserver.EVT_SERVER_STARTED, func(param interface{}) {
 		xsession.GList(mmn.NewPlayer())
-
 		players := ListPlayer(true)
 		for _, player := range players {
 			player.Online = 0
 			player.ConnUrl = ""
-		}
-		conns := xserver.GLan.SelectAll("conn")
-		if conns != nil {
-			for _, conn := range conns {
-				resp := &rpb.RPC_GetOnlineFromConnResp{}
-				xserver.SendSync(int(rpb.RID.RPC_GET_ONLINE_FROM_CONN), 0, nil, resp, conn.ID)
-				for idx, id := range resp.ID {
-					uid := int(id)
-					url := resp.Url[idx]
-					cid := resp.CID[idx]
-					player := ReadPlayer(uid)
-					if player != nil {
-						player.Online = 1
-						player.ConnUrl = url
-						player.ConnID = cid
-					}
-				}
-			}
 		}
 	})
 }

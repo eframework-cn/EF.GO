@@ -60,9 +60,10 @@ A LITE GO-BASED FRAMEWORK.
 - **SEE [LICENSE.md](https://go.eframework.cn/md_LICENSE.html) FOR MORE DETAILS.**
 
 ## CHANGELOG | 更新日志
-### 2023.6.11 - 2023.6.20
+### 2023.6.11 - 2023.6.25
 - 重构配置文件结构（server/consul/log/mysql/redis）
 - 重构部分xserver接口
+- 重构consul刷新逻辑
 - 新增redis多db功能支持
 - 新增多源化读取配置文件功能
 
