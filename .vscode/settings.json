@@ -73,30 +73,6 @@
                 "arch": "arm64",
                 "os": "darwin",
                 "build_arg": "-a"
-            },
-            "library.windows.amd64": {
-                "base": "common",
-                "arch": "amd64",
-                "os": "windows",
-                "build_arg": "-a -work"
-            },
-            "library.linux.amd64": {
-                "base": "common",
-                "arch": "amd64",
-                "os": "linux",
-                "build_arg": "-a -work"
-            },
-            "library.darwin.amd64": {
-                "base": "common",
-                "arch": "amd64",
-                "os": "darwin",
-                "build_arg": "-a -work"
-            },
-            "library.darwin.arm64": {
-                "base": "common",
-                "arch": "arm64",
-                "os": "darwin",
-                "build_arg": "-a -work"
             }
         },
         "cgi": {
