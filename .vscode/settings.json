@@ -39,7 +39,7 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "windows",
-                "build_arg": "-a"
+                "build_arg": "-a -trimpath"
             },
             "debug.linux.amd64": {
                 "base": "common",
@@ -50,7 +50,7 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "linux",
-                "build_arg": "-a"
+                "build_arg": "-a -trimpath"
             },
             "debug.darwin.amd64": {
                 "base": "common",
@@ -61,7 +61,7 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "darwin",
-                "build_arg": "-a"
+                "build_arg": "-a -trimpath"
             },
             "debug.darwin.arm64": {
                 "base": "common",
@@ -72,7 +72,7 @@
                 "base": "common",
                 "arch": "arm64",
                 "os": "darwin",
-                "build_arg": "-a"
+                "build_arg": "-a -trimpath"
             }
         },
         "cgi": {
@@ -100,7 +100,7 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "windows",
-                "build_arg": "-a"
+                "build_arg": "-a -trimpath"
             },
             "debug.linux.amd64": {
                 "base": "common",
@@ -111,7 +111,7 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "linux",
-                "build_arg": "-a"
+                "build_arg": "-a -trimpath"
             },
             "debug.darwin.amd64": {
                 "base": "common",
@@ -122,7 +122,7 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "darwin",
-                "build_arg": "-a"
+                "build_arg": "-a -trimpath"
             },
             "debug.darwin.arm64": {
                 "base": "common",
@@ -133,7 +133,7 @@
                 "base": "common",
                 "arch": "arm64",
                 "os": "darwin",
-                "build_arg": "-a"
+                "build_arg": "-a -trimpath"
             }
         },
         "center": {
@@ -161,7 +161,7 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "windows",
-                "build_arg": "-a"
+                "build_arg": "-a -trimpath"
             },
             "debug.linux.amd64": {
                 "base": "common",
@@ -172,7 +172,7 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "linux",
-                "build_arg": "-a"
+                "build_arg": "-a -trimpath"
             },
             "debug.darwin.amd64": {
                 "base": "common",
@@ -183,7 +183,7 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "darwin",
-                "build_arg": "-a"
+                "build_arg": "-a -trimpath"
             },
             "debug.darwin.arm64": {
                 "base": "common",
@@ -194,7 +194,7 @@
                 "base": "common",
                 "arch": "arm64",
                 "os": "darwin",
-                "build_arg": "-a"
+                "build_arg": "-a -trimpath"
             }
         }
     }

@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/eframework-cn/EP.GO.CORE v0.0.0
-	github.com/eframework-cn/EP.GO.UTIL v1.0.0
+	github.com/eframework-cn/EP.GO.UTIL v1.0.1
 )
 
 replace (
