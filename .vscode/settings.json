@@ -20,7 +20,7 @@
                 "os": "windows",
                 "icon": "conf/icon.ico",
                 "src_path": "src/public/conn",
-                "build_arg": "",
+                "build_args": [],
                 "build_path": "exec/public",
                 "build_copy": [
                     "conf/*",
@@ -39,7 +39,10 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "windows",
-                "build_arg": "-a -trimpath"
+                "build_args": [
+                    "-a",
+                    "-trimpath"
+                ]
             },
             "debug.linux.amd64": {
                 "base": "common",
@@ -50,7 +53,10 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "linux",
-                "build_arg": "-a -trimpath"
+                "build_args": [
+                    "-a",
+                    "-trimpath"
+                ]
             },
             "debug.darwin.amd64": {
                 "base": "common",
@@ -61,7 +67,10 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "darwin",
-                "build_arg": "-a -trimpath"
+                "build_args": [
+                    "-a",
+                    "-trimpath"
+                ]
             },
             "debug.darwin.arm64": {
                 "base": "common",
@@ -72,7 +81,10 @@
                 "base": "common",
                 "arch": "arm64",
                 "os": "darwin",
-                "build_arg": "-a -trimpath"
+                "build_args": [
+                    "-a",
+                    "-trimpath"
+                ]
             }
         },
         "cgi": {
@@ -81,7 +93,7 @@
                 "os": "windows",
                 "icon": "conf/icon.ico",
                 "src_path": "src/public/cgi",
-                "build_arg": "",
+                "build_args": [],
                 "build_path": "exec/public",
                 "build_copy": [
                     "conf/*",
@@ -100,7 +112,10 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "windows",
-                "build_arg": "-a -trimpath"
+                "build_args": [
+                    "-a",
+                    "-trimpath"
+                ]
             },
             "debug.linux.amd64": {
                 "base": "common",
@@ -111,7 +126,10 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "linux",
-                "build_arg": "-a -trimpath"
+                "build_args": [
+                    "-a",
+                    "-trimpath"
+                ]
             },
             "debug.darwin.amd64": {
                 "base": "common",
@@ -122,7 +140,10 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "darwin",
-                "build_arg": "-a -trimpath"
+                "build_args": [
+                    "-a",
+                    "-trimpath"
+                ]
             },
             "debug.darwin.arm64": {
                 "base": "common",
@@ -133,7 +154,10 @@
                 "base": "common",
                 "arch": "arm64",
                 "os": "darwin",
-                "build_arg": "-a -trimpath"
+                "build_args": [
+                    "-a",
+                    "-trimpath"
+                ]
             }
         },
         "center": {
@@ -142,7 +166,7 @@
                 "os": "windows",
                 "icon": "conf/icon.ico",
                 "src_path": "src/private/center",
-                "build_arg": "",
+                "build_args": [],
                 "build_path": "exec/private",
                 "build_copy": [
                     "conf/*",
@@ -161,7 +185,10 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "windows",
-                "build_arg": "-a -trimpath"
+                "build_args": [
+                    "-a",
+                    "-trimpath"
+                ]
             },
             "debug.linux.amd64": {
                 "base": "common",
@@ -172,7 +199,10 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "linux",
-                "build_arg": "-a -trimpath"
+                "build_args": [
+                    "-a",
+                    "-trimpath"
+                ]
             },
             "debug.darwin.amd64": {
                 "base": "common",
@@ -183,7 +213,10 @@
                 "base": "common",
                 "arch": "amd64",
                 "os": "darwin",
-                "build_arg": "-a -trimpath"
+                "build_args": [
+                    "-a",
+                    "-trimpath"
+                ]
             },
             "debug.darwin.arm64": {
                 "base": "common",
@@ -194,7 +227,10 @@
                 "base": "common",
                 "arch": "arm64",
                 "os": "darwin",
-                "build_arg": "-a -trimpath"
+                "build_args": [
+                    "-a",
+                    "-trimpath"
+                ]
             }
         }
     }
