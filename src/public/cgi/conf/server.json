@@ -3,8 +3,8 @@
     "csl": {
         "ns": "eframe",
         "addr": "127.0.0.1:8500",
-        "logout": 1000000,
-        "timeout": 1000000,
+        "logout": 60,
+        "timeout": 5,
         "interval": 1000000,
         "fetch": 1
     },
