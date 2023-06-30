@@ -40,7 +40,6 @@
                 "arch": "amd64",
                 "os": "windows",
                 "build_args": [
-                    "-a",
                     "-trimpath"
                 ]
             },
@@ -54,7 +53,6 @@
                 "arch": "amd64",
                 "os": "linux",
                 "build_args": [
-                    "-a",
                     "-trimpath"
                 ]
             },
@@ -68,7 +66,6 @@
                 "arch": "amd64",
                 "os": "darwin",
                 "build_args": [
-                    "-a",
                     "-trimpath"
                 ]
             },
@@ -82,7 +79,6 @@
                 "arch": "arm64",
                 "os": "darwin",
                 "build_args": [
-                    "-a",
                     "-trimpath"
                 ]
             }
@@ -113,7 +109,6 @@
                 "arch": "amd64",
                 "os": "windows",
                 "build_args": [
-                    "-a",
                     "-trimpath"
                 ]
             },
@@ -127,7 +122,6 @@
                 "arch": "amd64",
                 "os": "linux",
                 "build_args": [
-                    "-a",
                     "-trimpath"
                 ]
             },
@@ -141,7 +135,6 @@
                 "arch": "amd64",
                 "os": "darwin",
                 "build_args": [
-                    "-a",
                     "-trimpath"
                 ]
             },
@@ -155,7 +148,6 @@
                 "arch": "arm64",
                 "os": "darwin",
                 "build_args": [
-                    "-a",
                     "-trimpath"
                 ]
             }
@@ -186,7 +178,6 @@
                 "arch": "amd64",
                 "os": "windows",
                 "build_args": [
-                    "-a",
                     "-trimpath"
                 ]
             },
@@ -200,7 +191,6 @@
                 "arch": "amd64",
                 "os": "linux",
                 "build_args": [
-                    "-a",
                     "-trimpath"
                 ]
             },
@@ -214,7 +204,6 @@
                 "arch": "amd64",
                 "os": "darwin",
                 "build_args": [
-                    "-a",
                     "-trimpath"
                 ]
             },
@@ -228,7 +217,6 @@
                 "arch": "arm64",
                 "os": "darwin",
                 "build_args": [
-                    "-a",
                     "-trimpath"
                 ]
             }
