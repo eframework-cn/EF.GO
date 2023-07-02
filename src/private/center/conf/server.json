@@ -43,7 +43,7 @@
     },
     "mysql": {
         "DB_Main": {
-            "database": "eframe_test",
+            "database": "eframe.dev",
             "address": "127.0.0.1:3306",
             "username": "root",
             "password": "123456",
