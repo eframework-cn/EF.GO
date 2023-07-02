@@ -60,7 +60,9 @@ func NewCgiServer() *CgiServer {
 					if _cid == "" {
 						_cid = req.URL.Query().Get("cid")
 					}
-					cid = xstring.ToInt(_cid)
+					if _cid != "" {
+						cid = xstring.ToInt(_cid)
+					}
 					route := xserver.CGIROUTEMAP[cid]
 					if route == nil {
 						resp.WriteHeader(500)
