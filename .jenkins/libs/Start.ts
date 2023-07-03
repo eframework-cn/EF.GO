@@ -9,6 +9,7 @@
 //-----------------------------------------------------------------------//
 
 import * as path from "path"
+import * as http from "http"
 import * as child_process from "child_process"
 import { Helper } from "./Helper"
 import { Const, Scheme } from "./Const"
@@ -80,15 +81,14 @@ export class Start {
                                     }
                                 }
                                 Helper.Log("[Start]{0}", cmd)
-                                await new Promise<void>(resolve => {
-                                    child_process.spawn(cmd, opt).on("spawn", resolve)
-                                })
+                                child_process.spawn(cmd, opt)
                             } catch (error) {
                                 Helper.LogError("[Start]run {0} err: {1}", exefile, error)
                                 reject(error)
                             }
                         }
                     }
+                    await new Promise((resolve) => setTimeout(resolve, 6000))
                     resolve("[Server/Monitor]http://" + lcfg.csl.addr + "/ui/dc1/services/" + lcfg.csl.ns)
                 }
             } catch (err) { reject(err) }

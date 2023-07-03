@@ -39,7 +39,7 @@ export class Notify {
                 })
             })
 
-            req.on("error", (e) => Helper.LogError(e))
+            req.on("error", (e) => { Helper.LogError(e); resolve(e) })
             req.write(postData)
             req.end()
         })

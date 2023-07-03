@@ -5,7 +5,7 @@
  Source Server Type    : MySQL
  Source Server Version : 50520
  Source Host           : localhost:3306
- Source Schema         : eframe.dev
+ Source Schema         : eframe.dev.main
 
  Target Server Type    : MySQL
  Target Server Version : 50520
