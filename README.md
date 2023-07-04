@@ -60,8 +60,9 @@ A LITE GO-BASED FRAMEWORK.
 - **SEE [LICENSE.md](https://go.eframework.cn/md_LICENSE.html) FOR MORE DETAILS.**
 
 ## CHANGELOG | 更新日志
-### 2023.7.4 -
+### 2023.6.26 -
 - 修复Consul更新服务内存泄漏
+- 优化Consul键值对区分命名空间
 - 优化线路控制台日志显示
 
 ### 2023.6.11 - 2023.6.25
