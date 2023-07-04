@@ -60,6 +60,10 @@ A LITE GO-BASED FRAMEWORK.
 - **SEE [LICENSE.md](https://go.eframework.cn/md_LICENSE.html) FOR MORE DETAILS.**
 
 ## CHANGELOG | 更新日志
+### 2023.7.4 -
+- 修复Consul更新服务内存泄漏
+- 优化线路控制台日志显示
+
 ### 2023.6.11 - 2023.6.25
 - 重构配置文件结构（server/consul/log/mysql/redis）
 - 重构部分xserver接口
