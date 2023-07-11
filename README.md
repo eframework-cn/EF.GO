@@ -62,6 +62,7 @@ A LITE GO-BASED FRAMEWORK.
 ## CHANGELOG | 更新日志
 ### 2023.6.26 -
 - 修复Consul更新服务内存泄漏
+- 修复自由分配端口异常
 - 优化Consul键值对区分命名空间
 - 优化线路控制台日志显示
 
