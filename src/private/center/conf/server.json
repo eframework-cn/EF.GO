@@ -39,7 +39,7 @@
         "addr": "127.0.0.1:6379",
         "pwd": "",
         "db": 0,
-        "maxIdle": 10
+        "maxIdle": 1
     },
     "mysql": {
         "DB_Main": {
@@ -47,8 +47,8 @@
             "address": "127.0.0.1:3306",
             "username": "root",
             "password": "123456",
-            "maxIdle": 10,
-            "maxConn": 30,
+            "maxIdle": 1,
+            "maxConn": 1,
             "checkSec": 1800
         }
     }
